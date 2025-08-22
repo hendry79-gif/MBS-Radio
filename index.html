@@ -2,24 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Radio 538 & Movie Background</title>
+  <title>Radio 538 & Slideshow Background</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="video-background">
-    <div class="video-foreground">
-      <iframe
-        src="https://www.youtube.com/embed/n5Xgobco2zs?autoplay=1&mute=1&controls=0&loop=1&playlist=n5Xgobco2zs&modestbranding=1&showinfo=0&rel=0"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-        title="YouTube video background"
-      ></iframe>
-    </div>
+  <!-- Image Slideshow Background -->
+  <div class="slideshow-background">
+    <img class="background-slide" src="https://uptodatewebdesign.s3.eu-west-3.amazonaws.com/uploads/Seriematig-2-1681463298428.jpeg" style="opacity: 1;">
+    <img class="background-slide" src="https://uptodatewebdesign.s3.eu-west-3.amazonaws.com/uploads/PHOTO-2022-05-09-12-53-09-2-1681458881842.jpeg" style="opacity: 0;">
+    <img class="background-slide" src="https://uptodatewebdesign.s3.eu-west-3.amazonaws.com/uploads/Cimbalenstraat-Maastricht-22-1681460541635.jpeg" style="opacity: 0;">
+    <img class="background-slide" src="https://uptodatewebdesign.s3.eu-west-3.amazonaws.com/uploads/WhatsApp-Image-2022-03-25-at-15.24.12-1-1681459415490.jpeg" style="opacity: 0;">
+    <img class="background-slide" src="https://uptodatewebdesign.s3.eu-west-3.amazonaws.com/uploads/PHOTO-2022-04-22-13-39-21-1697715695963.jpeg" style="opacity: 0;">
+    <!-- Add more images as needed -->
   </div>
   <div class="content">
-    <h1>MBS Hybrid Klazienaveen</h1>
+    <h1>Welcome to My Radio & Slideshow Background Website</h1>
     <section>
+      <h2>Listen to Radio 538</h2>
       <audio controls>
         <source src="https://22333.live.streamtheworld.com/RADIO538.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -27,18 +26,29 @@
     </section>
     <section>
       <h2>Weather in Klazienaveen</h2>
-      <!-- Meteomatics Free Weather Widget for Klazienaveen -->
-      <iframe
-        src="https://www.meteomatics.com/en/weather-widget/three-days?lat=52.7242&lon=6.9636&loc=Klazienaveen"
-        style="border-radius:10px;border:none;width:350px;height:300px;box-shadow:0 2px 12px #0008;"
-        title="Weather in Klazienaveen"
-        loading="lazy"
-      ></iframe>
+      <!-- MeteoBlue 3-day Weather Widget for Klazienaveen -->
+      <iframe src="https://www.meteoblue.com/en/weather/widget/three/klazienaveen_netherlands_2752536?geoloc=fixed&days=3&tempunit=CELSIUS" 
+        frameborder="0" scrolling="NO" allowtransparency="true" 
+        style="width: 320px; height: 450px; border-radius:10px; box-shadow:0 2px 12px #0008;"></iframe>
       <br>
       <a href="https://www.meteomatics.com/en/weather-widgets/" target="_blank" style="color:#fff;text-shadow:0 1px 4px #000;">
         More weather widgets by Meteomatics
       </a>
     </section>
   </div>
+  <script>
+    // Background slideshow JS
+    let bgIndex = 0;
+    const bgSlides = document.getElementsByClassName("background-slide");
+    function showBgSlide() {
+      for (let i = 0; i < bgSlides.length; i++) {
+        bgSlides[i].style.opacity = "0";
+      }
+      bgSlides[bgIndex].style.opacity = "1";
+      bgIndex = (bgIndex + 1) % bgSlides.length;
+    }
+    setInterval(showBgSlide, 4000); // Change every 4s
+    showBgSlide();
+  </script>
 </body>
 </html>
