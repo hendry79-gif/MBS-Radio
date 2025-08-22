@@ -1,0 +1,50 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.video-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.video-foreground {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 100vw; height: 56.25vw; /* 16:9 ratio for full width */
+  min-height: 100vh;
+  min-width: 177.77vh; /* 16:9 ratio for full height */
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Let clicks pass through */
+}
+
+.video-foreground iframe {
+  width: 100vw;
+  height: 56.25vw; /* 16:9 */
+  min-height: 100vh;
+  min-width: 177.77vh; /* 16:9 */
+  position: absolute;
+  top: 0; left: 0;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding-top: 60px;
+  text-shadow: 0 2px 12px #000;
+}
+
+audio {
+  width: 80%;
+  max-width: 600px;
+  margin-top: 20px;
+}

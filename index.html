@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Radio 538 & Movie Background</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="video-background">
+    <div class="video-foreground">
+      <iframe
+        src="https://www.youtube.com/embed/n5Xgobco2zs?autoplay=1&mute=1&controls=0&loop=1&playlist=n5Xgobco2zs&modestbranding=1&showinfo=0&rel=0"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        title="YouTube video background"
+      ></iframe>
+    </div>
+  </div>
+  <div class="content">
+    <h1>Welcome to My Radio & Movie Background Website</h1>
+    <section>
+      <h2>Listen to Radio 538</h2>
+      <audio controls>
+        <source src="https://22333.live.streamtheworld.com/RADIO538.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+    <section>
+      <h2>Weather in Klazienaveen</h2>
+      <!-- Weather widget: Open-Meteo example (no API key needed) -->
+      <iframe 
+        src="https://widget.open-meteo.com/?latitude=52.7242&longitude=6.9636&hourly=temperature_2m,weathercode&current_weather=true&forecast_days=1&theme=dark&wind_speed_unit=kmh&temperature_unit=celsius" 
+        style="border-radius:10px;border:none;width:350px;height:200px;box-shadow:0 2px 12px #0008;"
+        title="Weather in Klazienaveen"
+        loading="lazy"
+      ></iframe>
+    </section>
+  </div>
+</body>
+</html>
