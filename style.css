@@ -23,6 +23,33 @@ body, html {
   background-color: #222;
 }
 
+/* Weer-widget rechtsboven */
+.weather-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  text-align: right;
+}
+
+.weather-container .weather {
+  width: 400px;
+  max-width: 90vw;
+  height: 400px;   /* Terug naar groot formaat */
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.7);
+}
+
+/* Meteoblue link kleiner maken */
+.weather-container a {
+  font-size: 0.85em;
+  color: #ccc;
+  text-decoration: none;
+}
+.weather-container a:hover {
+  text-decoration: underline;
+}
+
 /* Content blok */
 .content {
   position: relative;
@@ -40,10 +67,6 @@ h1 {
   font-size: 2.2rem;
   margin-bottom: 20px;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
-}
-h2 {
-  margin-top: 20px;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 
 /* Audio speler */
@@ -66,15 +89,4 @@ audio, #radioPlayer {
 }
 #radioSelect:hover {
   background: #444;
-}
-
-/* Iframe styling (weer widget) */
-iframe.weather {
-  margin-top: 10px;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.7);
-  width: 100%;          /* Laat de iframe altijd de volle breedte innemen */
-  max-width: 400px;     /* Maximaal 400px breed, pas eventueel aan */
-  height: auto;         /* Hoogte past zich automatisch aan, indien mogelijk */
-  aspect-ratio: 16/9;   /* Zorgt voor een vaste verhouding, pas aan indien nodig */
 }

@@ -10,11 +10,20 @@
   <script>
   const images = ['foto1.jpeg', 'foto2.jpeg', 'foto3.jpeg', 'foto4.jpeg', 'foto5.jpeg', 'foto6.jpeg', 'foto7.jpeg'];
   let idx = 0;
+  // Zet direct de eerste achtergrond
+  document.getElementById('video-background').style.backgroundImage = `url('${images[idx]}')`;
   setInterval(() => {
-    document.getElementById('video-background').style.backgroundImage = `url('${images[idx]}')`;
     idx = (idx + 1) % images.length;
+    document.getElementById('video-background').style.backgroundImage = `url('${images[idx]}')`;
   }, 50000); // elke 50 seconden wisselen
   </script>
+  <div class="weather-container">
+<iframe src="https://www.meteoblue.com/en/weather/widget/three?geoloc=detect&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 460px; height: 591px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/en/weather/week/index" target="_blank" rel="noopener">meteoblue</a>
+</div>
+      <!-- DO NOT REMOVE THIS LINK -->
+      <a href="https://www.meteoblue.com/en/weather/week/klazienaveen_the-netherlands_2752798" target="_blank" rel="noopener">meteoblue</a>
+    </div>
+  </div>
   <div class="content">
     <h1>MBS Klazienaveen</h1>
     <section>
@@ -39,14 +48,6 @@
           radioPlayer.play();
         });
       </script>
-    </section>
-    <section>
-      <h2>Weather in Klazienaveen</h2>
-      <iframe class="weather" src="https://www.meteoblue.com/en/weather/widget/three/klazienaveen_the-netherlands_2752798?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 300px; height: 400px"></iframe>
-      <div>
-        <!-- DO NOT REMOVE THIS LINK -->
-        <a href="https://www.meteoblue.com/en/weather/week/klazienaveen_the-netherlands_2752798" target="_blank" rel="noopener">meteoblue</a>
-      </div>
     </section>
   </div>
 </body>
