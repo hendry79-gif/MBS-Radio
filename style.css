@@ -1,88 +1,82 @@
-/* Algemene instellingen */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
-  color: white;
-  text-align: center;
-  overflow: hidden;
-}
+    /* Algemene instellingen */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
 
-/* Achtergrond slideshow */
-.slideshow-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: black;
-  overflow: hidden;
-  z-index: -1;
-}
+    /* YouTube video achtergrond */
+    #video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    #video-background iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
 
-.background-slide {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  position: absolute;
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-}
+    /* Content blok */
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+      margin-top: 5%;
+  background: none;       /* was 'transparent' or a color, now 'none' */
+  border-radius: 0;       /* no rounded corners */
+  display: inline-block;  /* you can set to 'block' if preferred */
+  box-shadow: none;       /* removes shadow */
+    }
 
-/* Content blok */
-.content {
-  position: relative;
-  z-index: 1;
-  padding: 20px;
-  margin-top: 5%;
-  background: transparent;
-  border-radius: 15px;
-  display: inline-block;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-}
+    /* Koppen */
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    }
 
-/* Koppen */
-h1 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
-}
+    h2 {
+      margin-top: 20px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
 
-h2 {
-  margin-top: 20px;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
+    /* Audio speler */
+    audio, #radioPlayer {
+      margin-top: 15px;
+      outline: none;
+    }
 
-/* Audio speler */
-audio, #radioPlayer {
-  margin-top: 15px;
-  outline: none;
-}
+    /* Dropdown styling */
+    #radioSelect {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      margin-top: 10px;
+      cursor: pointer;
+      background: #222;
+      color: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 
-/* Dropdown styling */
-#radioSelect {
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: none;
-  font-size: 1rem;
-  margin-top: 10px;
-  cursor: pointer;
-  background: #222;
-  color: white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-}
+    }
 
-#radioSelect:hover {
-  background: #444;
-}
+    #radioSelect:hover {
+      background: #444;
+    }
 
-/* Iframe styling (weer widget) */
-iframe {
-  margin-top: 10px;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.7);
-}
+    /* Iframe styling (weer widget) */
+    iframe.weather {
+      margin-top: 10px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.7);
+    }

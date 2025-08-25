@@ -2,32 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Radio & Slideshow Background</title>
+  <title>Radio & Movie Background</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Image Slideshow Background -->
-  <div class="slideshow-background">
-    <img class="background-slide" src="https://uptodatewebdesign.s3.eu-west-3.amazonaws.com/uploads/Seriematig-2-1681463298428.jpeg" style="opacity: 1;">
-    <img class="background-slide" src="https://uptodatewebdesign.s3.eu-west-3.amazonaws.com/uploads/PHOTO-2022-05-09-12-53-09-2-1681458881842.jpeg" style="opacity: 0;">
-    <img class="background-slide" src="https://uptodatewebdesign.s3.eu-west-3.amazonaws.com/uploads/Cimbalenstraat-Maastricht-22-1681460541635.jpeg" style="opacity: 0;">
-    <img class="background-slide" src="https://uptodatewebdesign.s3.eu-west-3.amazonaws.com/uploads/WhatsApp-Image-2022-03-25-at-15.24.12-1-1681459415490.jpeg" style="opacity: 0;">
-    <img class="background-slide" src="https://uptodatewebdesign.s3.eu-west-3.amazonaws.com/uploads/PHOTO-2022-04-22-13-39-21-1697715695963.jpeg" style="opacity: 0;">
-    <!-- Add more images as needed -->
+  <div id="video-background">
+    <iframe
+      src="https://www.youtube.com/embed/n5Xgobco2zs?autoplay=1&mute=1&controls=0&loop=1&playlist=n5Xgobco2zs&modestbranding=1&showinfo=0&iv_load_policy=3"
+      allow="autoplay"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
   </div>
   <div class="content">
-    <h1>Welcome to My Radio & Slideshow Background Website</h1>
+    <h1>MBS Klazienaveen</h1>
     <section>
       <h2>Luister naar Radio</h2>
-      <!-- Dropdown met zenders (https://gitlab.com/Brady_The/live_streams.sii/-/blob/main/live_streams.sii) -->
+      <!-- Dropdown met zenders -->
       <select id="radioSelect">
         <option value="https://22333.live.streamtheworld.com/RADIO538.mp3">Radio 538</option>
         <option value="https://22333.live.streamtheworld.com/SKYRADIO.mp3">Sky Radio</option>
-        <option value="https://22593.live.streamtheworld.com/VERONICA.mp3">Sky Radio</option>
+        <option value="https://22593.live.streamtheworld.com/VERONICA.mp3">Radio Veronica</option>
         <option value="https://21293.live.streamtheworld.com/QMUSIC.mp3">Qmusic</option>
       </select>
       <br><br>
-      <!-- Één speler -->
       <audio id="radioPlayer" controls autoplay>
         <source src="https://22333.live.streamtheworld.com/RADIO538.mp3" type="audio/mpeg">
         Je browser ondersteunt geen audio.
@@ -44,26 +42,12 @@
     <section>
       <h2>Weather in Klazienaveen</h2>
       <!-- MeteoBlue Weather Widget for Klazienaveen -->
-      <iframe src="https://www.meteoblue.com/en/weather/widget/three/klazienaveen_the-netherlands_2752798?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 460px; height: 592px"></iframe>
+      <iframe class="weather" src="https://www.meteoblue.com/en/weather/widget/three/klazienaveen_the-netherlands_2752798?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 460px; height: 592px"></iframe>
       <div>
         <!-- DO NOT REMOVE THIS LINK -->
         <a href="https://www.meteoblue.com/en/weather/week/klazienaveen_the-netherlands_2752798" target="_blank" rel="noopener">meteoblue</a>
       </div>
     </section>
   </div>
-  <script>
-    // Background slideshow JS
-    let bgIndex = 0;
-    const bgSlides = document.getElementsByClassName("background-slide");
-    function showBgSlide() {
-      for (let i = 0; i < bgSlides.length; i++) {
-        bgSlides[i].style.opacity = "0";
-      }
-      bgSlides[bgIndex].style.opacity = "1";
-      bgIndex = (bgIndex + 1) % bgSlides.length;
-    }
-    setInterval(showBgSlide, 4000); // Change every 4s
-    showBgSlide();
-  </script>
 </body>
 </html>
