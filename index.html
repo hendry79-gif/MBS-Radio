@@ -2,8 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Radio 538 & Slideshow Background</title>
+  <title>Radio & Slideshow Background</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Achtergrond slideshow, afbeeldingen in het midden */
+    .slideshow-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .background-slide {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+      margin-top: 5%;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    }
+
+    h2 {
+      margin-top: 20px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
+    audio {
+      margin-top: 15px;
+      outline: none;
+    }
+
+    iframe {
+      margin-top: 10px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.7);
+    }
+  </style>
 </head>
 <body>
   <!-- Image Slideshow Background -->
@@ -18,22 +86,36 @@
   <div class="content">
     <h1>Welcome to My Radio & Slideshow Background Website</h1>
     <section>
-      <h2>Listen to Radio 538</h2>
-      <audio controls>
+      <h2>Luister naar Radio</h2>
+      <!-- Dropdown met zenders -->
+      <select id="radioSelect">
+        <option value="https://22333.live.streamtheworld.com/RADIO538.mp3">Radio 538</option>
+        <option value="https://22333.live.streamtheworld.com/SKYRADIO.mp3">Sky Radio</option>
+        <option value="https://icecast-qmusicnl-cdp.triple-it.nl/Qmusic_nl_live_96.mp3">Qmusic</option>
+      </select>
+      <br><br>
+      <!-- Één speler -->
+      <audio id="radioPlayer" controls autoplay>
         <source src="https://22333.live.streamtheworld.com/RADIO538.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Je browser ondersteunt geen audio.
       </audio>
+      <script>
+        const radioSelect = document.getElementById('radioSelect');
+        const radioPlayer = document.getElementById('radioPlayer');
+        radioSelect.addEventListener('change', function() {
+          radioPlayer.src = this.value;
+          radioPlayer.play();
+        });
+      </script>
     </section>
     <section>
       <h2>Weather in Klazienaveen</h2>
-      <!-- MeteoBlue 3-day Weather Widget for Klazienaveen -->
-      <iframe src="https://www.meteoblue.com/en/weather/widget/three/klazienaveen_netherlands_2752536?geoloc=fixed&days=3&tempunit=CELSIUS" 
-        frameborder="0" scrolling="NO" allowtransparency="true" 
-        style="width: 320px; height: 450px; border-radius:10px; box-shadow:0 2px 12px #0008;"></iframe>
-      <br>
-      <a href="https://www.meteomatics.com/en/weather-widgets/" target="_blank" style="color:#fff;text-shadow:0 1px 4px #000;">
-        More weather widgets by Meteomatics
-      </a>
+      <!-- MeteoBlue Weather Widget for Klazienaveen -->
+      <iframe src="https://www.meteoblue.com/en/weather/widget/three/klazienaveen_the-netherlands_2752798?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=image"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 460px; height: 592px"></iframe>
+      <div>
+        <!-- DO NOT REMOVE THIS LINK -->
+        <a href="https://www.meteoblue.com/en/weather/week/klazienaveen_the-netherlands_2752798" target="_blank" rel="noopener">meteoblue</a>
+      </div>
     </section>
   </div>
   <script>

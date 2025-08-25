@@ -15,16 +15,20 @@ body, html {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
   overflow: hidden;
   z-index: -1;
 }
 
 .background-slide {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   opacity: 0;
   transition: opacity 2s ease-in-out;
 }
@@ -54,9 +58,26 @@ h2 {
 }
 
 /* Audio speler */
-audio {
+audio, #radioPlayer {
   margin-top: 15px;
   outline: none;
+}
+
+/* Dropdown styling */
+#radioSelect {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  margin-top: 10px;
+  cursor: pointer;
+  background: #222;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+#radioSelect:hover {
+  background: #444;
 }
 
 /* Iframe styling (weer widget) */
