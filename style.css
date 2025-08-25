@@ -76,4 +76,8 @@ iframe.weather {
   margin-top: 10px;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.7);
+  width: 100%;          /* Laat de iframe altijd de volle breedte innemen */
+  max-width: 400px;     /* Maximaal 400px breed, pas eventueel aan */
+  height: auto;         /* Hoogte past zich automatisch aan, indien mogelijk */
+  aspect-ratio: 16/9;   /* Zorgt voor een vaste verhouding, pas aan indien nodig */
 }
