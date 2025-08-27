@@ -9,16 +9,19 @@ body, html {
   overflow: hidden;
 }
 
-/* Buienradar linksboven */
-.buienradar-container {
+/* Weeronline linksboven */
+.weeronline-container {
   position: fixed;
   top: 20px;
   left: 20px;
-  z-index: 20;
-  margin: 0;
-  padding: 0;
-  /* optioneel: kleine schaduw voor zichtbaarheid */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  z-index: 15;
+  width: 350px;
+  max-height: 700px;
+  overflow-y: auto;
+  background: rgba(0,0,0,0.7);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.7);
 }
 
 /* Video achtergrond */
@@ -58,7 +61,7 @@ body, html {
   left: 20px;
   z-index: 15;
   width: 350px;
-  max-height: 250px;
+  max-height: 350px;
   overflow-y: auto;
   background: rgba(0,0,0,0.7);
   padding: 10px;
@@ -101,7 +104,7 @@ body, html {
   z-index: 1;
   padding: 20px;
   margin-top: 5%;
-  background: none;
+  https://www.weeronline.nl/widget/radar?id=4057148&circle=true&noAnalytics=true;
   border-radius: 0;
   display: inline-block;
   box-shadow: none;
