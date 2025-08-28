@@ -111,12 +111,20 @@ body, html {
 }
 
 .site-logo {
-  max-width: 1000px;     /* logo breedte */
+  max-width: 500px;     /* standaard max breedte */
+  width: 100%;          /* schaalt automatisch af */
   height: auto;
   display: block;
-  margin: 0 auto 0px;  /* centreren + ruimte eronder */
+  margin: 0 auto 20px;  /* centreren + ruimte eronder */
 }
 
+/* Op kleinere schermen (mobiel) logo wat kleiner */
+@media (max-width: 600px) {
+  .site-logo {
+    max-width: 120px;
+    margin-bottom: 15px;
+  }
+}
 /* Koppen */
 h1 {
   font-size: 5rem;
