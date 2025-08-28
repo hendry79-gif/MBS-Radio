@@ -110,6 +110,13 @@ body, html {
   box-shadow: none;
 }
 
+.site-logo {
+  max-width: 1000px;     /* logo breedte */
+  height: auto;
+  display: block;
+  margin: 0 auto 0px;  /* centreren + ruimte eronder */
+}
+
 /* Koppen */
 h1 {
   font-size: 5rem;
@@ -118,15 +125,6 @@ h1 {
   text-shadow: none;         /* oude schaduw weghalen */
   -webkit-text-stroke: 1px white; /* witte rand */
 }
-
-h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: black;              /* zwarte tekst */
-  text-shadow: none;         /* oude schaduw weghalen */
-  -webkit-text-stroke: 1px white; /* witte rand */
-}
-
 
 #playPauseBtn {
   margin-top: 10px;

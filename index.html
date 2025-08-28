@@ -77,10 +77,10 @@
   </script>
 
   <!-- Hoofdcontent en radio -->
-  <div class="content">
-    <h1>MBS Klazienaveen</h1>
+<div class="content">
+  <img src="Logo.png" alt="MBS logo" class="site-logo">
+  <h1>MBS Klazienaveen</h1>
     <section>
-      <h2>Luister naar Radio</h2>
       <select id="radioSelect">
         <option value="https://22333.live.streamtheworld.com/RADIO538.mp3">Radio 538</option>
         <option value="https://22333.live.streamtheworld.com/SKYRADIO.mp3">Sky Radio</option>
@@ -114,6 +114,40 @@
           }
         });
       </script>
+
+<script>
+  function refreshWeeronline() {
+    const frame = document.querySelector('.weeronline-widget iframe');
+    if (frame) {
+      frame.src = frame.src; // herladen
+    }
+  }
+  // elke 30 minuten herladen
+  setInterval(refreshWeeronline, 30 * 60 * 1000);
+</script>
+
+<script>
+  function refreshMeteoblue() {
+    const frame = document.querySelector('.weather-container iframe');
+    if (frame) {
+      frame.src = frame.src; // herladen
+    }
+  }
+  // elke 30 minuten herladen
+  setInterval(refreshMeteoblue, 30 * 60 * 1000);
+</script>
+
+<script>
+  function refresnos() {
+    const frame = document.querySelector('.nos-widget iframe');
+    if (frame) {
+      frame.src = frame.src; // herladen
+    }
+  }
+  // elke 30 minuten herladen
+  setInterval(refresnos, 30 * 60 * 1000);
+</script>
+
     </section>
   </div>
 </body>
