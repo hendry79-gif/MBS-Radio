@@ -61,32 +61,17 @@
     <h3>Laatste NOS Nieuws</h3>
     <ul id="nos-feed"></ul>
   </div>
-  <script>
-    // Haal de laatste NOS nieuwsberichten op
-    fetch("https://api.rss2json.com/v1/api.json?rss_url=https://feeds.nos.nl/nosnieuwsalgemeen")
-      .then(response => response.json())
-      .then(data => {
-        let items = data.items.slice(0, 5);
-        let list = document.getElementById("nos-feed");
-        items.forEach(item => {
-          let li = document.createElement("li");
-          li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
-          list.appendChild(li);
-        });
-      });
-  </script>
 
   <!-- Hoofdcontent en radio -->
-<div class="content">
-  <img src="Logo.png" alt="MBS logo" class="site-logo">
-  <h1>MBS Klazienaveen</h1>
+  <div class="content">
+    <img src="Logo.png" alt="MBS logo" class="site-logo">
+    <h1>MBS Klazienaveen</h1>
     <section>
       <select id="radioSelect">
-
         <!-- https://streamurl.link/ -->
-
         <option value="https://22333.live.streamtheworld.com/RADIO538.mp3">Radio 538</option>
         <option value="https://radiostreamfm.com/listen/dolfijn_97.3_fm/radio.mp3">Dolfijn FM</option>
+        <option value="https://icecast-qmusicnl-cdp.triple-it.nl/Joe_nl.mp3">JOE</option>
         <option value="https://icecast.omroep.nl/radio5-bb-mp3">Radio 5</option>
         <option value="https://22593.live.streamtheworld.com/VERONICA.mp3">Radio Veronica</option>
         <option value="https://22333.live.streamtheworld.com/SKYRADIO.mp3">Sky Radio</option>
@@ -122,38 +107,41 @@
         });
       </script>
 
-<script>
-  function refreshWeeronline() {
-    const frame = document.querySelector('.weeronline-widget iframe');
-    if (frame) {
-      frame.src = frame.src; // herladen
-    }
-  }
-  // elke 30 minuten herladen
-  setInterval(refreshWeeronline, 30 * 60 * 1000);
-</script>
+      <!-- Refresh scripts -->
+      <script>
+        function refreshWeeronline() {
+          const frame = document.querySelector('.weeronline-widget iframe');
+          if (frame) frame.src = frame.src;
+        }
 
-<script>
-  function refreshMeteoblue() {
-    const frame = document.querySelector('.weather-container iframe');
-    if (frame) {
-      frame.src = frame.src; // herladen
-    }
-  }
-  // elke 30 minuten herladen
-  setInterval(refreshMeteoblue, 30 * 60 * 1000);
-</script>
+        function refreshMeteoblue() {
+          const frame = document.querySelector('.weather-container iframe');
+          if (frame) frame.src = frame.src;
+        }
 
-<script>
-  function refresnos() {
-    const frame = document.querySelector('.nos-widget iframe');
-    if (frame) {
-      frame.src = frame.src; // herladen
-    }
-  }
-  // elke 30 minuten herladen
-  setInterval(refresnos, 30 * 60 * 1000);
-</script>
+        function loadNosNieuws() {
+          fetch("https://api.rss2json.com/v1/api.json?rss_url=https://feeds.nos.nl/nosnieuwsalgemeen")
+            .then(response => response.json())
+            .then(data => {
+              let items = data.items.slice(0, 5);
+              let list = document.getElementById("nos-feed");
+              list.innerHTML = ""; // leegmaken
+              items.forEach(item => {
+                let li = document.createElement("li");
+                li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+                list.appendChild(li);
+              });
+            });
+        }
+
+        // Eerste keer laden
+        loadNosNieuws();
+
+        // Elke 30 minuten refresh
+        setInterval(refreshWeeronline, 30 * 60 * 1000);
+        setInterval(refreshMeteoblue, 30 * 60 * 1000);
+        setInterval(loadNosNieuws, 30 * 60 * 1000);
+      </script>
 
     </section>
   </div>
