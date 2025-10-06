@@ -11,7 +11,7 @@
   <script>
     // Zet direct de eerste achtergrond, en wissel elke 50 seconden
     const images = [
-      'Foto1.jpg', 'Foto2.jpg', 'Foto3.jpg', 'Foto4.jpg', 'Foto5.jpg', 'Foto6.jpg', 'Foto7.jpg', 'Foto8.jpg', 'Foto9.jpg', 'Foto10.jpg', 'Foto11.jpg', 'Foto12.jpg', 'Foto13.jpg', 'Foto14.jpg'
+      'Foto1.jpg', 'Foto2.jpg', 'Foto3.jpg', 'Foto4.jpg', 'Foto5.jpg', 'Foto6.jpg', 'Foto7.jpg', 'Foto8.jpg', 'Foto9.jpg', 'Foto10.jpg'
     ];
     let idx = 0;
     const bg = document.getElementById('video-background');
@@ -23,7 +23,7 @@
     setInterval(() => {
       idx = (idx + 1) % images.length;
       setBG();
-    }, 10000);
+    }, 50000);
   </script>
 
   <!-- Weeronline widget (links boven) -->
@@ -63,6 +63,7 @@
 
   <!-- Hoofdcontent en radio -->
   <div class="content">
+    <img src="Logo.png" alt="MBS logo" class="site-logo">
     <h1>MBS Klazienaveen</h1>
     <section>
       <select id="radioSelect">
