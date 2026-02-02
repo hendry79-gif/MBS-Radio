@@ -103,7 +103,6 @@ body, html {
   z-index: 1;
   padding: 20px;
   margin-top: 5%;
-  https://www.weeronline.nl/widget/radar?id=4057148&circle=true&noAnalytics=true;
   border-radius: 0;
   display: inline-block;
   box-shadow: none;
@@ -168,4 +167,27 @@ audio, #radioPlayer {
 }
 #radioSelect:hover {
   background: #444;
+}
+
+/* DaysPedia widget: fixed rechtsonderin aangepast op 260x319 iframe */
+.dayspedia-wrapper {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 9999;
+  width: 260px;         /* vaste breedte */
+  height: 319px;        /* vaste hoogte - voorkomt afkappen */
+  display: block;
+  pointer-events: auto;
+  overflow: visible;    /* zorg dat niets wordt verborgen */
+}
+
+/* Zorg dat de iframe exact de ruimte vult */
+.dayspedia-wrapper iframe {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  border: none;
+  background: transparent;
+}
 }
