@@ -37,21 +37,51 @@ body, html {
   z-index: -1;
 }
 
-/* Weer-widget rechtsboven */
+/* Weer-widget rechtsboven (Meteoblue) - geforceerd rechtsboven en overlay voor bottom branding */
 .weather-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  width: 460px;
+  height: 570px; /* 590 - 20 */
+  overflow: hidden;
+  z-index: 9999;
+  pointer-events: none;
+  left: auto !important;      /* forceer niet aan de linkerkant te plakken */
+  z-index: 9999 !important;   /* boven andere widgets */
   text-align: right;
+
 }
 
-.weather-container .weather {
-  width: 400px;
-  max-width: 90vw;
-  height: 400px;   /* Terug naar groot formaat */
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.7);
+  /* houd iframe op originele grootte; gebruik overlay om de onderste ~20px te verbergen */
+  width: 460px;    /* match the iframe width used in HTML */
+  height: 590px;   /* original iframe height */
+  transform: translateY(-20px); /* schuift iframe omhoog zodat onderste 20px buiten wrapper ligt */
+  pointer-events: none; /* container itself should not block clicks */
+}
+
+/* Meteoblue (rechtsboven) - top blijft exact op 20px; alleen onderste ~20px wordt weggeknipt */
+.weather-container {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+  z-index: 9999 !important;
+  width: 460px;     /* moet gelijk zijn aan de iframe width in index.html */
+  height: 590px;    /* gelijke hoogte als de iframe: geen verschuiving van bovenkant */
+  overflow: hidden; /* wrapper verbergt alles wat buiten valt */
+  text-align: right;
+  pointer-events: none; /* container zelf blokkeert geen klikken */
+}
+
+/* iframe vult de ruimte en we knippen alleen de onderkant weg (clip-path) */
+.weather-container iframe {
+  width: 460px !important;
+  height: 520px !important;
+  display: block;
+  border: none;
+  background: transparent;
+  pointer-events: auto; /* laat klikken door naar de iframe */
 }
 
 .nos-widget {
@@ -103,7 +133,6 @@ body, html {
   z-index: 1;
   padding: 20px;
   margin-top: 5%;
-  https://www.weeronline.nl/widget/radar?id=4057148&circle=true&noAnalytics=true;
   border-radius: 0;
   display: inline-block;
   box-shadow: none;
@@ -169,3 +198,28 @@ audio, #radioPlayer {
 #radioSelect:hover {
   background: #444;
 }
+
+/* DaysPedia widget: fixed rechtsonderin aangepast op 260x319 iframe */
+/* We crop the bottom ~20px (branding) by making the wrapper shorter and hiding overflow. */
+.dayspedia-wrapper {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 9999;
+  width: 260px;
+  height: 319px;  /* gelijke hoogte als de iframe */
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.dayspedia-wrapper iframe {
+  width: 260px !important;
+  height: 319px !important;
+  display: block;
+  border: none;
+  background: transparent;
+  -webkit-clip-path: inset(0 0 20px 0); /* knip alleen onderkant */
+  clip-path: inset(0 0 20px 0);
+}
+
+/* If needed, tweak the translateY value slightly to perfectly hide/remove the 'powered' text. */
