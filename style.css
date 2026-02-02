@@ -170,24 +170,27 @@ audio, #radioPlayer {
 }
 
 /* DaysPedia widget: fixed rechtsonderin aangepast op 260x319 iframe */
+/* We crop the bottom ~20px (branding) by making the wrapper shorter and hiding overflow. */
 .dayspedia-wrapper {
   position: fixed;
   bottom: 16px;
   right: 16px;
   z-index: 9999;
   width: 260px;         /* vaste breedte */
-  height: 319px;        /* vaste hoogte - voorkomt afkappen */
+  height: 299px;        /* originele hoogte (319) minus ~20px to hide branding */
   display: block;
   pointer-events: auto;
-  overflow: visible;    /* zorg dat niets wordt verborgen */
+  overflow: hidden;     /* crop the bottom area */
 }
 
-/* Zorg dat de iframe exact de ruimte vult */
+/* Zorg dat de iframe iets groter is en omhoog wordt geschoven zodat de onderste 20px buiten zicht vallen */
 .dayspedia-wrapper iframe {
   width: 100% !important;
-  height: 100% !important;
+  height: 319px !important; /* keep original iframe height */
   display: block;
   border: none;
   background: transparent;
+  transform: translateY(-20px); /* shift iframe up to hide bottom branding */
 }
-}
+
+/* If needed, tweak the translateY value slightly to perfectly hide/remove the 'powered' text. */
