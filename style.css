@@ -37,20 +37,13 @@ body, html {
   z-index: -1;
 }
 
-/* Weer-widget rechtsboven (Meteoblue) - geforceerd rechtsboven en overlay voor bottom branding */
+/* Weer-widget rechtsboven */
 .weather-container {
-  position: fixed !important;
-  top: 20px !important;
-  right: 20px !important;
-  left: auto !important;      /* forceer niet aan de linkerkant te plakken */
-  z-index: 9999 !important;   /* boven andere widgets */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
   text-align: right;
-
-  /* houd iframe op originele grootte; gebruik overlay om de onderste ~20px te verbergen */
-  width: 460px;    /* match the iframe width used in HTML */
-  height: 590px;   /* original iframe height */
-  overflow: visible; /* overlay will sit above */
-  pointer-events: none; /* container itself should not block clicks */
 }
 
 .weather-container .weather {
@@ -59,29 +52,6 @@ body, html {
   height: 400px;   /* Terug naar groot formaat */
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.7);
-}
-
-/* Zorg dat de iframe 100% vult en interactie werkt */
-.weather-container iframe {
-  width: 460px !important;
-  height: 590px !important; /* keep original iframe height */
-  display: block;
-  border: none;
-  background: transparent;
-  pointer-events: auto; /* laat klikken door naar iframe */
-}
-
-/* Overlay pseudo-element bedekt de onderste 20px zonder de iframe te verplaatsen */
-.weather-container::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 20px;               /* hoogte van de afdekking (pas aan: 18/20/22px) */
-  background: #fff;           /* effen kleur; verander naar andere kleur of gradient indien gewenst */
-  pointer-events: none;       /* overlay blokkeert geen interactie met iframe */
-  z-index: 10000;
 }
 
 .nos-widget {
@@ -133,6 +103,7 @@ body, html {
   z-index: 1;
   padding: 20px;
   margin-top: 5%;
+  https://www.weeronline.nl/widget/radar?id=4057148&circle=true&noAnalytics=true;
   border-radius: 0;
   display: inline-block;
   box-shadow: none;
@@ -198,29 +169,3 @@ audio, #radioPlayer {
 #radioSelect:hover {
   background: #444;
 }
-
-/* DaysPedia widget: fixed rechtsonderin aangepast op 260x319 iframe */
-/* We crop the bottom ~20px (branding) by making the wrapper shorter and hiding overflow. */
-.dayspedia-wrapper {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 9999;
-  width: 260px;         /* vaste breedte */
-  height: 299px;        /* originele hoogte (319) minus ~20px to hide branding */
-  display: block;
-  pointer-events: auto;
-  overflow: hidden;     /* crop the bottom area */
-}
-
-/* Zorg dat de iframe iets groter is en omhoog wordt geschoven zodat de onderste 20px buiten zicht vallen */
-.dayspedia-wrapper iframe {
-  width: 100% !important;
-  height: 319px !important; /* keep original iframe height */
-  display: block;
-  border: none;
-  background: transparent;
-  transform: translateY(-20px); /* shift iframe up to hide bottom branding */
-}
-
-/* If needed, tweak the translateY value slightly to perfectly hide/remove the 'powered' text. */

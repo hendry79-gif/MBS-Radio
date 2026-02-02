@@ -11,12 +11,11 @@
   <script>
     // Zet direct de eerste achtergrond, en wissel elke 50 seconden
     const images = [
-      'Foto1.jpg', 'Foto2.jpg', 'Foto3.jpg', 'Foto4.jpg', 'Foto5.jpg', 'Foto6.jpg', 'Foto7.jpg', 'Foto8.jpg', 'Foto9.jpg', 'Foto10.jpg'
+      'Foto1.jpg', 'Foto2.jpg', 'Foto3.jpg', 'Foto4.jpg', 'Foto5.jpg', 'Foto6.jpg', 'Foto7.jpg', 'Foto8.jpg', 'Foto9.jpg', 'Foto10.jpg', 'Foto11.jpg', 'Foto12.jpg', 'Foto13.jpg', 'Foto14.jpg'
     ];
     let idx = 0;
     const bg = document.getElementById('video-background');
     function setBG() {
-      if (!bg) return;
       bg.style.backgroundImage = `url('${images[idx]}')`;
       bg.style.backgroundColor = '';
     }
@@ -98,7 +97,7 @@
         const radioSelect = document.getElementById('radioSelect');
         const radioPlayer = document.getElementById('radioPlayer');
         const playPauseBtn = document.getElementById('playPauseBtn');
-        if (radioPlayer) radioPlayer.volume = 1.0;
+        radioPlayer.volume = 1.0;
         radioSelect.addEventListener('change', function() {
           radioPlayer.src = this.value;
           radioPlayer.play();
@@ -136,8 +135,7 @@
                 li.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
                 list.appendChild(li);
               });
-            })
-            .catch(err => console.error('NOS feed laden mislukt:', err));
+            });
         }
 
         // Eerste keer laden
@@ -151,11 +149,5 @@
 
     </section>
   </div>
-
-  <!-- DaysPedia widget: rechts-onder positioneren (slanke analoge klok iframe) -->
-  <div class="dayspedia-wrapper" aria-hidden="false">
-<!--Dayspedia.com widget--><iframe width='260' height='319' style='padding:0!important;margin:0!important;border:none!important;background:none!important;background:transparent!important' marginheight='0' marginwidth='0' frameborder='0' scrolling='no' comment='/*defined*/' src='https://dayspedia.com/if/analog/?v=1&iframe=eyJ3LTExIjpmYWxzZSwidy0xMyI6dHJ1ZSwidy0xNSI6dHJ1ZSwidy0xMTAiOnRydWUsInctd2lkdGgtMCI6dHJ1ZSwidy13aWR0aC0xIjpmYWxzZSwidy13aWR0aC0yIjpmYWxzZSwidy0xNiI6IjI0cHgiLCJ3LTE3IjoiMTYiLCJ3LTIxIjpmYWxzZSwiYmdpbWFnZSI6LTEsImJnaW1hZ2VTZXQiOmZhbHNlLCJ3LTIxYzAiOiIjNDA3YWIwIiwidy0wIjp0cnVlLCJ3LTMiOmZhbHNlLCJ3LTNjMCI6IiNlNjFlMWUiLCJ3LTNiMCI6IjEiLCJ3LTIwIjp0cnVlLCJ3LTQiOiIjZmZmZmZmIiwidy0xOCI6dHJ1ZSwidy13aWR0aC0yYy0wIjoiMzAwIiwidy0xMTUiOmZhbHNlLCJ3LTIzIjp0cnVlLCJ3LTIzYzAiOiIjMDAwMDAwIiwidy0yNiI6dHJ1ZSwidy0yNmIwIjoiMSIsInctMjciOnRydWUsInctMjdjMCI6IiNmZmZmZmYiLCJ3LTI0IjoiI2ZmZmZmZiIsInctMTNjMCI6IiNmZmZmZmYiLCJ3LTIyIjoiI2ZmZmZmZiIsInctMjUiOiIxNjAifQ==&lang=nl&cityid=17670'></iframe><!--Dayspedia.com widget ENDS-->
-  </div>
-
 </body>
 </html>
