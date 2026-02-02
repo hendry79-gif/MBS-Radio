@@ -139,7 +139,7 @@ body, html {
 }
 
 .site-logo {
-  max-width: 500px;     /* standaard max breedte */
+  max-width: 1500px;     /* standaard max breedte */
   width: 100%;          /* schaalt automatisch af */
   height: auto;
   display: block;
@@ -153,14 +153,8 @@ body, html {
     margin-bottom: 15px;
   }
 }
+
 /* Koppen */
-h1 {
-  font-size: 5rem;
-  margin-bottom: 20px;
-  color: black;              /* zwarte tekst */
-  text-shadow: none;         /* oude schaduw weghalen */
-  -webkit-text-stroke: 1px white; /* witte rand */
-}
 
 #playPauseBtn {
   margin-top: 10px;
