@@ -44,10 +44,12 @@ body, html {
   right: 20px;
   z-index: 10;
   text-align: right;
-  /* NEW: crop bottom ~20px of the embedded Meteoblue iframe (branding) */
-  width: 460px;           /* match the iframe width used in HTML */
-  height: 570px;          /* iframe height (590) minus ~20px to hide branding */
-  overflow: hidden;       /* hide the bottom area */
+
+  /* NEW: keep original iframe size but crop only the bottom ~20px using clip-path */
+  width: 460px;    /* match the iframe width used in HTML */
+  height: 590px;   /* original iframe height */
+  overflow: hidden;/* ensure the clipped area is hidden */
+  position: relative;
 }
 
 .weather-container .weather {
@@ -58,14 +60,16 @@ body, html {
   box-shadow: 0 3px 10px rgba(0,0,0,0.7);
 }
 
-/* If the iframe is used directly, shift it upwards so the bottom ~20px is outside the wrapper */
+/* Use clip-path to cut off the bottom ~20px of the iframe without shifting its top */
 .weather-container iframe {
   width: 460px !important;
   height: 590px !important; /* keep original iframe height */
   display: block;
   border: none;
   background: transparent;
-  transform: translateY(-20px); /* shift iframe up to hide bottom branding */
+  -webkit-clip-path: inset(0 0 20px 0);
+  clip-path: inset(0 0 20px 0); /* cuts 20px from the bottom */
+  pointer-events: auto;
 }
 
 .nos-widget {
