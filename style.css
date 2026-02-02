@@ -37,19 +37,20 @@ body, html {
   z-index: -1;
 }
 
-/* Weer-widget rechtsboven */
+/* Weer-widget rechtsboven (Meteoblue) - geforceerd rechtsboven en overlay voor bottom branding */
 .weather-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  left: auto !important;      /* forceer niet aan de linkerkant te plakken */
+  z-index: 9999 !important;   /* boven andere widgets */
   text-align: right;
 
-  /* NEW: keep original iframe size but crop only the bottom ~20px using clip-path */
+  /* houd iframe op originele grootte; gebruik overlay om de onderste ~20px te verbergen */
   width: 460px;    /* match the iframe width used in HTML */
   height: 590px;   /* original iframe height */
-  overflow: hidden;/* ensure the clipped area is hidden */
-  position: relative;
+  overflow: visible; /* overlay will sit above */
+  pointer-events: none; /* container itself should not block clicks */
 }
 
 .weather-container .weather {
@@ -60,16 +61,27 @@ body, html {
   box-shadow: 0 3px 10px rgba(0,0,0,0.7);
 }
 
-/* Use clip-path to cut off the bottom ~20px of the iframe without shifting its top */
+/* Zorg dat de iframe 100% vult en interactie werkt */
 .weather-container iframe {
   width: 460px !important;
   height: 590px !important; /* keep original iframe height */
   display: block;
   border: none;
   background: transparent;
-  -webkit-clip-path: inset(0 0 20px 0);
-  clip-path: inset(0 0 20px 0); /* cuts 20px from the bottom */
-  pointer-events: auto;
+  pointer-events: auto; /* laat klikken door naar iframe */
+}
+
+/* Overlay pseudo-element bedekt de onderste 20px zonder de iframe te verplaatsen */
+.weather-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20px;               /* hoogte van de afdekking (pas aan: 18/20/22px) */
+  background: #fff;           /* effen kleur; verander naar andere kleur of gradient indien gewenst */
+  pointer-events: none;       /* overlay blokkeert geen interactie met iframe */
+  z-index: 10000;
 }
 
 .nos-widget {
